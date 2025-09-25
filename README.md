@@ -1,15 +1,21 @@
-# What is this?
+# Animation – Le premier jour d'école
 
-The github.dev web-based editor is a lightweight editing experience that runs entirely in your browser. You can navigate files and source code repositories from GitHub, and make and commit code changes.
+Une animation web automatique (21s) en HTML/CSS/JS, style doux et pastel.
 
-There are two ways to go directly to a VS Code environment in your browser and start coding:
+## Lancer localement
 
-* Press the . key on any repository or pull request.
-* Swap `.com` with `.dev` in the URL. For example, this repo https://github.com/github/dev becomes http://github.dev/github/dev
+1. Servez le dossier avec n'importe quel serveur statique.
+   - Python 3: `python3 -m http.server 8000`
+   - Node: `npx serve . --single`
+2. Ouvrez `http://localhost:8000` dans votre navigateur.
 
-Preview the gif below to get a quick demo of github.dev in action.
+## Accessibilité
+- Zones marquées avec `aria-hidden` pour n'exposer qu'une scène à la fois.
+- Respecte `prefers-reduced-motion` (animations atténuées).
 
-![github dev](https://user-images.githubusercontent.com/856858/130119109-4769f2d7-9027-4bc4-a38c-10f297499e8f.gif)
+## Structure
+- `index.html` – scènes et sprites SVG
+- `styles.css` – thème pastel et animations
+- `script.js` – timeline automatique (3s par scène)
 
-# Why?
-It’s a quick way to edit and navigate code. It's especially useful if you want to edit multiple files at a time or take advantage of all the powerful code editing features of Visual Studio Code when making a quick change. For more information, see our [documentation](https://github.co/codespaces-editor-help).
+Aucun suivi d'analytics, pas d'emojis — uniquement des SVG personnalisés.
