@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Le premier jour d'école — Animation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app">
+      <header class="hero scene scene--opening is-active" data-scene="opening">
+        <div class="hero__inner">
+          <h1 class="title"><span class="title__typing">Le premier jour d'école</span></h1>
+          <p class="subtitle">L'aventure d'un enfant qui part à l'exploration</p>
+          <div class="underline" aria-hidden="true"></div>
+        </div>
+        <div class="icons-row">
+          <div class="icon-wrap" data-icon="sun"></div>
+          <div class="icon-wrap" data-icon="walker"></div>
+          <div class="icon-wrap" data-icon="group"></div>
+          <div class="icon-wrap" data-icon="door"></div>
+          <div class="icon-wrap" data-icon="hands"></div>
+        </div>
+      </header>
+
+      <main class="stages">
+        <section class="scene" data-scene="step-1">
+          <div class="scene__icon" data-icon="sun"></div>
+          <p class="scene__text">Ce matin-là, tout commence par un grand pas en dehors de la maison. Le cartable est prêt, le cœur un peu serré mais les yeux remplis de curiosité.</p>
+          <div class="bg-illustration bg-illustration--house" aria-hidden="true"></div>
+        </section>
+
+        <section class="scene" data-scene="step-2">
+          <div class="scene__icon" data-icon="walker"></div>
+          <p class="scene__text">À l'entrée de l'école, il y a beaucoup d'enfants, de parents, de sourires… et aussi quelques larmes. C'est un moment où l'on découvre un nouvel univers.</p>
+          <div class="bg-illustration bg-illustration--crowd" aria-hidden="true"></div>
+        </section>
+
+        <section class="scene" data-scene="step-3">
+          <div class="scene__icon" data-icon="group"></div>
+          <p class="scene__text">Dans la cour, les élèves se rassemblent. On cherche des visages familiers, on entend des voix nouvelles. C'est le début d'une grande aventure collective.</p>
+          <div class="bg-illustration bg-illustration--bubbles" aria-hidden="true"></div>
+        </section>
+
+        <section class="scene" data-scene="step-4">
+          <div class="scene__icon" data-icon="door"></div>
+          <p class="scene__text">Les pas résonnent dans le couloir. Les murs colorés, les dessins, les rires qui s'échappent des classes… tout invite à explorer.</p>
+          <div class="bg-illustration bg-illustration--hall" aria-hidden="true"></div>
+        </section>
+
+        <section class="scene" data-scene="step-5">
+          <div class="scene__icon" data-icon="hands"></div>
+          <p class="scene__text">Et quand on est perdu, une main tendue apparaît : un camarade, un professeur, un sourire bienveillant. On comprend qu'à l'école, on n'est jamais seul.</p>
+          <div class="bg-illustration bg-illustration--halo" aria-hidden="true"></div>
+        </section>
+
+        <section class="scene scene--closing" data-scene="closing">
+          <p class="closing__text">
+            Le premier jour d'école n'est pas seulement une entrée dans un bâtiment…
+            C'est le début d'un voyage, d'une histoire qui s'écrit pas à pas.
+          </p>
+          <div class="closing__icons">
+            <div class="mini" data-icon="sun"></div>
+            <div class="mini" data-icon="walker"></div>
+            <div class="mini" data-icon="group"></div>
+            <div class="mini" data-icon="door"></div>
+            <div class="mini" data-icon="hands"></div>
+          </div>
+          <div class="closing__kid" aria-hidden="true"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/icons.js"></script>
+    <script src="/script.js" defer></script>
+  </body>
+  </html>
+
