@@ -1,0 +1,65 @@
+:root{
+  --bg-start:#fff4e6;
+  --bg-end:#ffe4bd;
+  --text:#6b3f24;
+  --muted:#a06033;
+  --accent:#f4b544;
+  --orange:#f28b3a;
+  --rose:#ff8db3;
+  --green:#2dbf7a;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Nunito', 'Quicksand', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:linear-gradient(135deg,var(--bg-start),var(--bg-end));
+}
+#app{min-height:100%;display:grid;place-items:center;padding:24px}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease}
+.scene[aria-hidden="false"]{opacity:1;transform:none}
+
+.title-block{transform:translateY(-8px);}
+.title-block h1{font-weight:800;letter-spacing:.2px;margin:0 0 8px;font-size:clamp(28px,5vw,56px)}
+.subtitle{margin:0;color:var(--muted);font-weight:600}
+.underline{width:min(480px,60vw);height:4px;margin:18px auto 0;background:linear-gradient(90deg,var(--accent),transparent);border-radius:4px}
+
+.icons-row{display:flex;gap:28px;margin-top:36px}
+.icon{width:40px;height:40px;color:var(--muted);opacity:.0;transform:translateY(10px) scale(.9);animation:icons-in .9s ease forwards;}
+.icon:nth-child(1){animation-delay:.2s;color:var(--accent)}
+.icon:nth-child(2){animation-delay:.35s;color:var(--orange)}
+.icon:nth-child(3){animation-delay:.5s}
+.icon:nth-child(4){animation-delay:.65s;color:var(--rose)}
+.icon:nth-child(5){animation-delay:.8s;color:var(--green)}
+
+.scene-icon{width:88px;height:88px;color:var(--accent);margin-bottom:16px;}
+.scene[data-scene="arrivee"] .scene-icon{color:var(--orange)}
+.scene[data-scene="assemblee"] .scene-icon{color:#c47a3d}
+.scene[data-scene="couloir"] .scene-icon{color:var(--rose)}
+.scene[data-scene="aide"] .scene-icon{color:var(--green)}
+
+.scene-text, .closing-text{max-width:880px;font-size:clamp(16px,2.4vw,22px);line-height:1.6}
+.closing-text{font-weight:600}
+
+/* Icon containers use masks for crisp SVG coloring */
+.icon, .scene-icon{display:inline-block;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;background:currentColor}
+.icon[data-icon="sun"], .scene-icon[data-icon="sun"]{-webkit-mask-image:url('#');mask-image:url('#')}
+.icon[data-icon="walk"], .scene-icon[data-icon="walk"]{-webkit-mask-image:url('#');mask-image:url('#')}
+.icon[data-icon="group"], .scene-icon[data-icon="group"]{-webkit-mask-image:url('#');mask-image:url('#')}
+.icon[data-icon="door"], .scene-icon[data-icon="door"]{-webkit-mask-image:url('#');mask-image:url('#')}
+.icon[data-icon="hands"], .scene-icon[data-icon="hands"]{-webkit-mask-image:url('#');mask-image:url('#')}
+
+/* We will swap masks via JS using inline SVG <use> rendering fallback */
+svg.use{width:100%;height:100%}
+
+@keyframes icons-in{to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes door-open{0%{transform:perspective(200px) rotateY(0)}100%{transform:perspective(200px) rotateY(-18deg)}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 0 rgba(244,181,68,0))}50%{filter:drop-shadow(0 0 8px rgba(244,181,68,.8))}}
+
+/* Accessibility helpers */
+@media (prefers-reduced-motion: reduce){
+  .scene{transition:none}
+  .icon{animation:none;opacity:1;transform:none}
+}
