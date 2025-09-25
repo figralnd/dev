@@ -1,15 +1,51 @@
-# What is this?
+# Le Premier Jour d'École - Animation
 
-The github.dev web-based editor is a lightweight editing experience that runs entirely in your browser. You can navigate files and source code repositories from GitHub, and make and commit code changes.
+Une animation douce et automatique inspirée du style chaleureux et visuellement cohérent de votre photo.
 
-There are two ways to go directly to a VS Code environment in your browser and start coding:
+## 🎬 Description
 
-* Press the . key on any repository or pull request.
-* Swap `.com` with `.dev` in the URL. For example, this repo https://github.com/github/dev becomes http://github.dev/github/dev
+Cette animation raconte l'aventure du premier jour d'école à travers 5 étapes clés :
+1. **Le départ** 🌞 - Le moment de quitter la maison
+2. **L'arrivée** 🚶 - La découverte de l'école
+3. **L'assemblée** 👥 - Le rassemblement avec les autres élèves
+4. **Le couloir** 🚪 - L'exploration des espaces
+5. **L'aide** 🤝 - Le soutien quand on en a besoin
 
-Preview the gif below to get a quick demo of github.dev in action.
+## ✨ Fonctionnalités
 
-![github dev](https://user-images.githubusercontent.com/856858/130119109-4769f2d7-9027-4bc4-a38c-10f297499e8f.gif)
+- **Animation automatique** - Se déroule sans interaction
+- **Transitions fluides** - Entre chaque scène (3 secondes par étape)
+- **Icônes animées** - Chaque étape a son icône avec une animation spécifique
+- **Style cohérent** - Dégradé beige-ocre, couleurs pastel, typographie chaude
+- **Éléments de fond** - Illustrations SVG stylisées
+- **Responsive** - S'adapte aux différentes tailles d'écran
 
-# Why?
-It’s a quick way to edit and navigate code. It's especially useful if you want to edit multiple files at a time or take advantage of all the powerful code editing features of Visual Studio Code when making a quick change. For more information, see our [documentation](https://github.co/codespaces-editor-help).
+## 🚀 Utilisation
+
+1. Ouvrez `index.html` dans un navigateur web moderne
+2. L'animation démarre automatiquement après un court délai
+3. Profitez de l'expérience visuelle de 21 secondes
+
+## 📁 Structure des fichiers
+
+- `index.html` - Structure HTML avec toutes les scènes
+- `styles.css` - Styles et animations CSS
+- `script.js` - Logique JavaScript pour le timing et les transitions
+
+## 🎨 Personnalisation
+
+Vous pouvez modifier :
+- Les couleurs dans `styles.css`
+- Les textes dans `index.html`
+- Le timing dans `script.js`
+- Les icônes en remplaçant les emojis
+
+## 🔧 Compatibilité
+
+- Navigateurs modernes (Chrome, Firefox, Safari, Edge)
+- Compatible mobile et desktop
+- Nécessite JavaScript activé
+
+---
+
+*Créez des moments magiques avec cette animation douce et inspirante !*

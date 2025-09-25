@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le premier jour d'école</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Scène d'ouverture -->
+        <div class="scene opening-scene">
+            <div class="title-container">
+                <h1 class="main-title">Le premier jour d'école</h1>
+                <p class="subtitle">L'aventure d'un enfant qui part à l'exploration</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="steps-icons">
+                <div class="icon-wrapper">
+                    <div class="icon sun-icon" data-step="1">🌞</div>
+                    <span>Le départ</span>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icon walk-icon" data-step="2">🚶</div>
+                    <span>L'arrivée</span>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icon group-icon" data-step="3">👥</div>
+                    <span>L'assemblée</span>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icon door-icon" data-step="4">🚪</div>
+                    <span>Le couloir</span>
+                </div>
+                <div class="icon-wrapper">
+                    <div class="icon hands-icon" data-step="5">🤝</div>
+                    <span>L'aide</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Étape 1 : Le départ -->
+        <div class="scene step-scene" data-step="1">
+            <div class="step-content">
+                <div class="step-icon-container">
+                    <div class="step-icon sun-icon">🌞</div>
+                </div>
+                <div class="step-text">
+                    <p>Ce matin-là, tout commence par un grand pas en dehors de la maison. Le cartable est prêt, le cœur un peu serré mais les yeux remplis de curiosité.</p>
+                </div>
+            </div>
+            <div class="background-element house-child"></div>
+        </div>
+
+        <!-- Étape 2 : L'arrivée -->
+        <div class="scene step-scene" data-step="2">
+            <div class="step-content">
+                <div class="step-icon-container">
+                    <div class="step-icon walk-icon">🚶</div>
+                </div>
+                <div class="step-text">
+                    <p>À l'entrée de l'école, il y a beaucoup d'enfants, de parents, de sourires… et aussi quelques larmes. C'est un moment où l'on découvre un nouvel univers.</p>
+                </div>
+            </div>
+            <div class="background-element silhouettes"></div>
+        </div>
+
+        <!-- Étape 3 : L'assemblée -->
+        <div class="scene step-scene" data-step="3">
+            <div class="step-content">
+                <div class="step-icon-container">
+                    <div class="step-icon group-icon">👥</div>
+                </div>
+                <div class="step-text">
+                    <p>Dans la cour, les élèves se rassemblent. On cherche des visages familiers, on entend des voix nouvelles. C'est le début d'une grande aventure <span class="highlight">collective</span>.</p>
+                </div>
+            </div>
+            <div class="background-element speech-bubbles"></div>
+        </div>
+
+        <!-- Étape 4 : Le couloir -->
+        <div class="scene step-scene" data-step="4">
+            <div class="step-content">
+                <div class="step-icon-container">
+                    <div class="step-icon door-icon">🚪</div>
+                </div>
+                <div class="step-text">
+                    <p>Les pas résonnent dans le couloir. Les murs colorés, les dessins, les rires qui s'échappent des classes… tout invite à explorer.</p>
+                </div>
+            </div>
+            <div class="background-element drawings"></div>
+        </div>
+
+        <!-- Étape 5 : L'aide -->
+        <div class="scene step-scene" data-step="5">
+            <div class="step-content">
+                <div class="step-icon-container">
+                    <div class="step-icon hands-icon">🤝</div>
+                </div>
+                <div class="step-text">
+                    <p>Et quand on est perdu, une main tendue apparaît : un camarade, un professeur, un sourire bienveillant. On comprend qu'à l'école, on n'est <span class="highlight-bold">jamais seul</span>.</p>
+                </div>
+            </div>
+            <div class="background-element child-figure"></div>
+        </div>
+
+        <!-- Clôture -->
+        <div class="scene closing-scene">
+            <div class="closing-content">
+                <p class="closing-text">Le premier jour d'école n'est pas seulement une entrée dans un bâtiment…</p>
+                <p class="closing-text">C'est le début d'un voyage, d'une histoire qui s'écrit pas à pas.</p>
+            </div>
+            <div class="background-element final-icons"></div>
+            <div class="background-element happy-child"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
