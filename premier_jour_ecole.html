@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le premier jour d'école</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #f4e4c1 0%, #f0d0a0 50%, #e8c08a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            height: 600px;
+            position: relative;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-in-out;
+        }
+        
+        .scene.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .main-title {
+            font-size: 3.2em;
+            font-weight: 700;
+            color: #8b4513;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1);
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.4em;
+            color: #d2691e;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .divider {
+            width: 300px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ffb347);
+            margin: 0 auto 40px;
+            border-radius: 2px;
+            animation: drawLine 2s ease-in-out;
+        }
+        
+        .icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .icon {
+            font-size: 3em;
+            animation: bounceIn 1s ease-out;
+        }
+        
+        .icon:nth-child(1) { animation-delay: 0.2s; }
+        .icon:nth-child(2) { animation-delay: 0.4s; }
+        .icon:nth-child(3) { animation-delay: 0.6s; }
+        .icon:nth-child(4) { animation-delay: 0.8s; }
+        .icon:nth-child(5) { animation-delay: 1s; }
+        
+        .stage-icon {
+            font-size: 4em;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        .sun { color: #ffd700; }
+        .walk { color: #ff6347; }
+        .group { color: #d2691e; }
+        .door { color: #ff69b4; }
+        .help { color: #32cd32; }
+        
+        .stage-title {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #8b4513;
+            margin-bottom: 20px;
+        }
+        
+        .stage-text {
+            font-size: 1.3em;
+            color: #654321;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+            animation: typewriter 2s steps(100) forwards;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #8b4513;
+        }
+        
+        .stage-text.multiline {
+            white-space: normal;
+            border-right: none;
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+        
+        .closing-text {
+            font-size: 1.5em;
+            color: #8b4513;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 500;
+            animation: fadeInUp 2s ease-out forwards;
+        }
+        
+        .child-figure {
+            font-size: 5em;
+            color: #ff6347;
+            margin-top: 30px;
+            animation: celebrate 1s ease-in-out;
+        }
+        
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 15%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes drawLine {
+            from { width: 0; }
+            to { width: 300px; }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(50px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05) translateY(-10px);
+            }
+            70% {
+                transform: scale(0.9) translateY(0);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes celebrate {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            25% {
+                transform: rotate(-10deg) scale(1.1);
+            }
+            75% {
+                transform: rotate(10deg) scale(1.1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .walk-animation {
+            animation: walkStep 1s ease-in-out;
+        }
+        
+        @keyframes walkStep {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .group-animation {
+            animation: groupGather 2s ease-in-out;
+        }
+        
+        @keyframes groupGather {
+            0% { letter-spacing: 10px; }
+            100% { letter-spacing: 0; }
+        }
+        
+        .door-animation {
+            animation: doorOpen 2s ease-in-out;
+        }
+        
+        @keyframes doorOpen {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.2); }
+            100% { transform: scaleX(1); }
+        }
+        
+        .help-animation {
+            animation: handshake 1.5s ease-in-out;
+        }
+        
+        @keyframes handshake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+        
+        .highlight {
+            color: #ff6347;
+            font-weight: 600;
+        }
+        
+        .glow {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .date {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1.1em;
+            color: #d2691e;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-elements">
+            <div class="floating-element">📚</div>
+            <div class="floating-element">✏️</div>
+            <div class="floating-element">🎒</div>
+        </div>
+        
+        <!-- Opening Scene -->
+        <div class="scene active" id="opening">
+            <h1 class="main-title">Le premier jour d'école</h1>
+            <p class="subtitle">L'aventure d'un enfant qui part à l'exploration</p>
+            <div class="divider"></div>
+            <div class="icons-row">
+                <div class="icon sun">☀️</div>
+                <div class="icon walk">🚶</div>
+                <div class="icon group">👥</div>
+                <div class="icon door">🚪</div>
+                <div class="icon help">🤝</div>
+            </div>
+            <div class="date">25 septembre 2025</div>
+        </div>
+        
+        <!-- Stage 1: Le départ -->
+        <div class="scene" id="stage1">
+            <div class="stage-icon sun">☀️</div>
+            <h2 class="stage-title">Le départ</h2>
+            <p class="stage-text multiline">Ce matin-là, tout commence par un grand pas en dehors de la maison. Le cartable est prêt, le cœur un peu serré mais les yeux remplis de <span class="highlight">curiosité</span>.</p>
+        </div>
+        
+        <!-- Stage 2: L'arrivée -->
+        <div class="scene" id="stage2">
+            <div class="stage-icon walk walk-animation">🚶</div>
+            <h2 class="stage-title">L'arrivée</h2>
+            <p class="stage-text multiline">À l'entrée de l'école, il y a beaucoup d'enfants, de parents, de <span class="highlight">sourires</span>… et aussi quelques <span class="highlight">larmes</span>. C'est un moment où l'on découvre un nouvel univers.</p>
+        </div>
+        
+        <!-- Stage 3: L'assemblée -->
+        <div class="scene" id="stage3">
+            <div class="stage-icon group group-animation">👥</div>
+            <h2 class="stage-title">L'assemblée</h2>
+            <p class="stage-text multiline">Dans la cour, les élèves se rassemblent. On cherche des visages familiers, on entend des voix nouvelles. C'est le début d'une grande aventure <span class="highlight">collective</span>.</p>
+        </div>
+        
+        <!-- Stage 4: Le couloir -->
+        <div class="scene" id="stage4">
+            <div class="stage-icon door door-animation">🚪</div>
+            <h2 class="stage-title">Le couloir</h2>
+            <p class="stage-text multiline">Les pas résonnent dans le couloir. Les murs colorés, les dessins, les rires qui s'échappent des classes… tout invite à <span class="highlight">explorer</span>.</p>
+        </div>
+        
+        <!-- Stage 5: L'aide -->
+        <div class="scene" id="stage5">
+            <div class="stage-icon help help-animation">🤝</div>
+            <h2 class="stage-title">L'aide</h2>
+            <p class="stage-text multiline">Et quand on est perdu, une main tendue apparaît : un camarade, un professeur, un sourire bienveillant. On comprend qu'à l'école, on n'est <span class="highlight glow">jamais seul</span>.</p>
+        </div>
+        
+        <!-- Closing Scene -->
+        <div class="scene" id="closing">
+            <p class="closing-text">Le premier jour d'école n'est pas seulement une entrée dans un bâtiment…<br><br>C'est le début d'un voyage, d'une histoire qui s'écrit pas à pas.</p>
+            <div class="child-figure">🙋‍♂️</div>
+        </div>
+    </div>
+    
+    <script>
+        const scenes = [
+            'opening',
+            'stage1', 
+            'stage2',
+            'stage3', 
+            'stage4',
+            'stage5',
+            'closing'
+        ];
+        
+        const timings = [3000, 3000, 3000, 3000, 3000, 3000, 3000]; // 3 seconds each
+        let currentScene = 0;
+        
+        function showScene(index) {
+            // Hide all scenes
+            scenes.forEach(sceneId => {
+                const scene = document.getElementById(sceneId);
+                scene.classList.remove('active');
+            });
+            
+            // Show current scene
+            const currentSceneElement = document.getElementById(scenes[index]);
+            currentSceneElement.classList.add('active');
+            
+            // Add specific animations for each stage
+            if (index === 2) { // Stage 2 - Walking
+                setTimeout(() => {
+                    const walkIcon = currentSceneElement.querySelector('.walk-animation');
+                    if (walkIcon) walkIcon.style.animation = 'walkStep 1s ease-in-out';
+                }, 500);
+            }
+            
+            if (index === 3) { // Stage 3 - Group gathering
+                setTimeout(() => {
+                    const groupIcon = currentSceneElement.querySelector('.group-animation');
+                    if (groupIcon) groupIcon.style.animation = 'groupGather 2s ease-in-out';
+                }, 500);
+            }
+            
+            if (index === 4) { // Stage 4 - Door opening
+                setTimeout(() => {
+                    const doorIcon = currentSceneElement.querySelector('.door-animation');
+                    if (doorIcon) doorIcon.style.animation = 'doorOpen 2s ease-in-out';
+                }, 500);
+            }
+            
+            if (index === 5) { // Stage 5 - Handshake
+                setTimeout(() => {
+                    const helpIcon = currentSceneElement.querySelector('.help-animation');
+                    if (helpIcon) helpIcon.style.animation = 'handshake 1.5s ease-in-out';
+                }, 500);
+            }
+        }
+        
+        function nextScene() {
+            currentScene++;
+            if (currentScene >= scenes.length) {
+                // Animation complete, restart after a pause
+                setTimeout(() => {
+                    currentScene = 0;
+                    showScene(currentScene);
+                    startAnimation();
+                }, 2000);
+                return;
+            }
+            
+            showScene(currentScene);
+            
+            // Schedule next scene
+            setTimeout(nextScene, timings[currentScene]);
+        }
+        
+        function startAnimation() {
+            // Start with first scene after opening
+            setTimeout(nextScene, timings[0]);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showScene(0); // Show opening scene
+            startAnimation();
+        });
+        
+        // Add sound effects (optional - commented out as it requires audio files)
+        /*
+        function playSound(soundName) {
+            const audio = new Audio(`sounds/${soundName}.mp3`);
+            audio.volume = 0.3;
+            audio.play().catch(e => console.log('Audio play failed:', e));
+        }
+        */
+    </script>
+</body>
+</html>
